@@ -14,9 +14,12 @@ public class MemberServiceV1 {
         Member fromMember = memberRepository.findById(fromId);
         Member toMember = memberRepository.findById(toId);
 
+        // 같은 커넥션에서 동작해야하고 하나의 트랜잭션에서 동작해야 한다.
         memberRepository.update(fromId, fromMember.getMoney() - money);
         validation(toMember);
         memberRepository.update(toId, toMember.getMoney() + money);
+
+        // 커밋, 롤백 판단 후 처리
     }
 
     private void validation(Member member) {
