@@ -1,7 +1,6 @@
 package springdb.springdb1.service;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
 import springdb.springdb1.domain.Member;
 import springdb.springdb1.repository.MemberRepositoryV2;
 
@@ -13,7 +12,6 @@ import java.sql.SQLException;
  * 파라미터 연동, 풀을 고려한 종료
  */
 @RequiredArgsConstructor
-@Transactional
 public class MemberServiceV2 {
     private final DataSource dataSource;
     private final MemberRepositoryV2 memberRepository;
