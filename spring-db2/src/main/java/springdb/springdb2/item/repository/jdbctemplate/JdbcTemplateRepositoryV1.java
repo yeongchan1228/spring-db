@@ -57,7 +57,7 @@ public class JdbcTemplateRepositoryV1 implements ItemRepository {
     @Override
     public Optional<Item> findById(Long id) {
 
-        String sql = "select id, item_name, price, quantity from item where id=?";
+        String sql = "select * from item where id=?";
 
         try{
             Item item = jdbcTemplate.queryForObject(sql, itemRowMapper(), id);
@@ -71,7 +71,7 @@ public class JdbcTemplateRepositoryV1 implements ItemRepository {
     public List<Item> findAll(ItemSearchCond cond) {
         String itemName = cond.getItemName();
         Integer maxPrice = cond.getMaxPrice();
-        String sql = "select id, item_name, price, quantity from item";
+        String sql = "select * from item";
 
         // 동적 쿼리
         if(StringUtils.hasText(itemName) || maxPrice != null){
@@ -81,7 +81,7 @@ public class JdbcTemplateRepositoryV1 implements ItemRepository {
         boolean andFlag = false;
         ArrayList<Object> param = new ArrayList<>();
         if(StringUtils.hasText(itemName)){
-            sql += " item_anme like concat('%', ?, '%')";
+            sql += " item_name like concat('%', ?, '%')";
             param.add(itemName);
             andFlag = true;
         }
@@ -89,8 +89,10 @@ public class JdbcTemplateRepositoryV1 implements ItemRepository {
         if(maxPrice != null){
             if(andFlag){
                 sql += " and price <= ?";
+                param.add(maxPrice);
             }else{
                 sql += " price <= ?";
+                param.add(maxPrice);
             }
         }
 
