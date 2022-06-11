@@ -4,6 +4,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 import springdb.springdb2.item.entity.Item;
 import springdb.springdb2.item.repository.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
@@ -14,11 +15,11 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest
+@SpringBootTest // 상위 패키지의 @SpringBootApplication을 찾아 거기에 적용된 내용을 바탕으로 Bean을 생성하고 등록한다.
+@Transactional
 class ItemRepositoryTest {
 
-    @Autowired
-    ItemRepository itemRepository;
+    @Autowired ItemRepository itemRepository;
 
     @AfterEach
     void afterEach() {
