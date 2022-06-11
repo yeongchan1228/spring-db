@@ -7,3 +7,4 @@
   - JPA
   - Spring Data Jpa
   - QueryDsl
+  - Redis
