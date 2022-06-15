@@ -7,8 +7,23 @@ spring:
     password:
     driver-class-name: org.h2.Driver
 
+
 #logging:
 #  level:
 #    org:
 #      springframework:
 #        jdbc: debug
+mybatis:
+  type-aliases-package: springdb.springdb2.item # resultType 패키지 설정, 하위 패키지 포함됨
+  configuration:
+    map-underscore-to-camel-case: true # a_b <-> aB 가능
+#  mapper-locations: classPath:mapper/**/*.xml # 해당 옵션을 적용하면 resources아래 패키지명과 Class이름을 맞추지 않고 resources/mapper 아래 .xml을 작성하면 된다.
+
+
+logging:
+  level:
+    springdb:
+      springdb2:
+        item:
+          repositroy:
+            mybatis: trace

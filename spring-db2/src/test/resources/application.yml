@@ -8,3 +8,11 @@ spring:
 #    username: sa
 #    password:
 #    driver-class-name: org.h2.Driver
+
+mybatis:
+  type-aliases-package: springdb.springdb2.item # 특정 파라미터, 응답 값을 패키지 명까지 다 xml에 기입해야 하는데 그것을 편리하게 해줌, 작성된 패키지는 기입 안해도 알아서 설정됨
+  configuration:
+    map-underscore-to-camel-case: true # a_b <-> aB 가능
+logging:
+  level:
+    springdb.springdb2.item.repository.mybatis: trace
