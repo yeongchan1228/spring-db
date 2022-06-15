@@ -2,6 +2,7 @@ package springdb.springdb2.item.repository.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import springdb.springdb2.item.entity.Item;
 import springdb.springdb2.item.repository.ItemSearchCond;
 import springdb.springdb2.item.repository.dto.ItemUpdateDto;
@@ -17,6 +18,7 @@ public interface ItemMapper {
 
     void update(@Param("id") Long id, @Param("updateParam") ItemUpdateDto updateDto);
 
+    @Select("select id, item_name, price, quantity from item where id=#{id}")
     Optional<Item> findById(Long id);
 
     List<Item> findAll(ItemSearchCond itemSearchCond);

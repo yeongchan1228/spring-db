@@ -16,11 +16,11 @@
     </update>
 
 <!--  yml 설정에 의해 resultType="springdb.springdb2.item.entity.Item" -> resultType="Item"  -->
-    <select id="findById" resultType="Item">
-        select *
-        from item
-        where id=#{id}
-    </select>
+<!--    <select id="findById" resultType="Item">-->
+<!--        select *-->
+<!--        from item-->
+<!--        where id=#{id}-->
+<!--    </select>-->
 
     <select id="findAll" resultType="Item">
         select *
