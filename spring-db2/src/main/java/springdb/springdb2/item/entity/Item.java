@@ -2,11 +2,15 @@ package springdb.springdb2.item.entity;
 
 import lombok.Data;
 
-@Data
-public class Item {
+import javax.persistence.*;
 
+@Data
+@Entity // orm 추가
+public class Item {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) // orm 추가
     private Long id;
 
+    @Column(length = 10) // orm 추가
     private String itemName;
     private Integer price;
     private Integer quantity;
