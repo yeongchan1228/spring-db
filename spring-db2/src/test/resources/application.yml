@@ -16,3 +16,5 @@ mybatis:
 logging:
   level:
     springdb.springdb2.item.repository.mybatis: trace
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.aql.BasicBinder: TRACE

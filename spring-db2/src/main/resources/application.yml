@@ -27,3 +27,5 @@ logging:
         item:
           repositroy:
             mybatis: trace
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.aql.BasicBinder: TRACE
