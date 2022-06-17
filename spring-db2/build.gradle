@@ -26,13 +26,16 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	runtimeOnly 'com.h2database:h2'
-	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
 	// p6spy
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:+'
 
 	// MyBatis 추가, spring이 공식적으로 버전을 관리하지 않음
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:+'
+
+	// Jpa 추가
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
