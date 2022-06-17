@@ -5,16 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
-import springdb.springdb2.item.config.JdbcTemplateV1Config;
-import springdb.springdb2.item.config.JdbcTemplateV2Config;
-import springdb.springdb2.item.config.JdbcTemplateV3Config;
-import springdb.springdb2.item.config.MemoryConfig;
+import springdb.springdb2.item.config.*;
 import springdb.springdb2.item.repository.ItemRepository;
 
 //@Import(MemoryConfig.class)
 //@Import(JdbcTemplateV1Config.class)
 //@Import(JdbcTemplateV2Config.class)
-@Import(JdbcTemplateV3Config.class)
+//@Import(JdbcTemplateV3Config.class)
+//@Import(MyBatisConfig.class)
+@Import(JpaConfig.class)
 @SpringBootApplication(scanBasePackages = "springdb.springdb2.item.controller")
 public class SpringDb2Application {
 
