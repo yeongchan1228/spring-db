@@ -15,7 +15,8 @@ import springdb.springdb2.item.repository.v1.ItemRepository;
 //@Import(MyBatisConfig.class)
 //@Import(JpaConfig.class)
 //@Import(SpringDataJpaConfig.class)
-@Import(QuerydslConfig.class)
+//@Import(QuerydslConfig.class)
+@Import(ItemV2Config.class)
 @SpringBootApplication(scanBasePackages = "springdb.springdb2.item.controller")
 public class SpringDb2Application {
 
