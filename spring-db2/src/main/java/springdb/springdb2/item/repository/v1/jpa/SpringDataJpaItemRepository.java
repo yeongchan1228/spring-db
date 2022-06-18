@@ -1,4 +1,4 @@
-package springdb.springdb2.item.repository.jpa;
+package springdb.springdb2.item.repository.v1.jpa;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

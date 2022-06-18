@@ -1,51 +1,45 @@
-package springdb.springdb2.item.repository.jdbctemplate;
+package springdb.springdb2.item.repository.v1.jdbctemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.util.StringUtils;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 
 import javax.sql.DataSource;
-import java.sql.PreparedStatement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 /**
- * NamedParameterJdbcTemplate
+ * SimpleJdbcInsert 사용
  */
 @Slf4j
-public class JdbcTemplateRepositoryV2 implements ItemRepository {
+public class JdbcTemplateRepositoryV3 implements ItemRepository {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final SimpleJdbcInsert simpleJdbcInsert;
 
-    public JdbcTemplateRepositoryV2(DataSource dataSource) {
+    public JdbcTemplateRepositoryV3(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
+        this.simpleJdbcInsert = new SimpleJdbcInsert(dataSource)
+                .withTableName("item")
+                .usingGeneratedKeyColumns("id"); // Pk
+//                .usingColumns("item_name", "price", "quantity") // 생략 가능
     }
 
     @Override
     public Item save(Item item) {
-        String sql = "insert into item(item_name, price, quantity) values (:itemName, :price, :quantity)";
-
-        BeanPropertySqlParameterSource sqlParameterSource = new BeanPropertySqlParameterSource(item);
-
-        KeyHolder keyHolder = new GeneratedKeyHolder(); // Database에서 생성한 자동 키 값을 받기 위해 생성
-        namedParameterJdbcTemplate.update(sql, sqlParameterSource, keyHolder);
-
-        item.setId(keyHolder.getKey().longValue());
-
+        Number key = simpleJdbcInsert.executeAndReturnKey(new BeanPropertySqlParameterSource(item));
+        item.setId(key.longValue());
         return item;
     }
 

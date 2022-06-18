@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 
 @Slf4j
 @RequiredArgsConstructor

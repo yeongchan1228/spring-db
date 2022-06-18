@@ -1,11 +1,11 @@
-package springdb.springdb2.item.repository.memory;
+package springdb.springdb2.item.repository.v1.memory;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 
 import java.util.HashMap;
 import java.util.List;

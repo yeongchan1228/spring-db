@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import springdb.springdb2.item.entity.Item;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 import springdb.springdb2.item.service.ItemService;
 
 import java.util.List;

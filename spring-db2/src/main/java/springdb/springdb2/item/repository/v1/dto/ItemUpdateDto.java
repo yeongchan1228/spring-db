@@ -1,4 +1,4 @@
-package springdb.springdb2.item.repository.dto;
+package springdb.springdb2.item.repository.v1.dto;
 
 import lombok.Data;
 

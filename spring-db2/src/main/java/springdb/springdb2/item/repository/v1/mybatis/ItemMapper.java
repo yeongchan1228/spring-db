@@ -1,11 +1,11 @@
-package springdb.springdb2.item.repository.mybatis;
+package springdb.springdb2.item.repository.v1.mybatis;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import springdb.springdb2.item.entity.Item;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 
 import java.util.List;
 import java.util.Optional;

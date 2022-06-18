@@ -1,11 +1,11 @@
-package springdb.springdb2.item.repository.jpa;
+package springdb.springdb2.item.repository.v1.jpa;
 
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 
 import java.util.List;
 import java.util.Optional;

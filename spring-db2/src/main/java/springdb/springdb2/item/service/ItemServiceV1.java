@@ -3,9 +3,9 @@ package springdb.springdb2.item.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
 
 import java.util.List;
 import java.util.Optional;

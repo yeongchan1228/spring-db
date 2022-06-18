@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import springdb.springdb2.item.entity.Item;
-import springdb.springdb2.item.repository.ItemRepository;
+import springdb.springdb2.item.repository.v1.ItemRepository;
 import springdb.springdb2.item.repository.ItemSearchCond;
-import springdb.springdb2.item.repository.dto.ItemUpdateDto;
-import springdb.springdb2.item.repository.memory.MemoryItemRepository;
+import springdb.springdb2.item.repository.v1.dto.ItemUpdateDto;
+import springdb.springdb2.item.repository.v1.memory.MemoryItemRepository;
 
 import java.util.List;
 
