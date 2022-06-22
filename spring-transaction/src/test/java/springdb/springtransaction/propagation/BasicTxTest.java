@@ -47,4 +47,30 @@ public class BasicTxTest {
         transactionManager.rollback(status);
         log.info("Transaction Rollback Complete");
     }
+
+    @Test
+    void double_commit(){
+        log.info("Transaction1 Start");
+        TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("Transaction1 Commit");
+        transactionManager.commit(status);
+
+        log.info("Transaction2 Start");
+        TransactionStatus status2 = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("Transaction2 Commit");
+        transactionManager.commit(status2);
+    }
+
+    @Test
+    void oneCommitOneRollback(){
+        log.info("Transaction1 Start");
+        TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("Transaction1 Commit");
+        transactionManager.commit(status);
+
+        log.info("Transaction2 Start");
+        TransactionStatus status2 = transactionManager.getTransaction(new DefaultTransactionAttribute());
+        log.info("Transaction2 Rollback");
+        transactionManager.rollback(status2);
+    }
 }
